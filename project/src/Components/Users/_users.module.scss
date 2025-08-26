@@ -1,0 +1,17 @@
+.users {
+  display: grid;
+  gap: 50px;
+  justify-items: center;
+  padding: 140px 0;
+}
+
+.title {
+  text-align: center;
+}
+
+.usersCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 29px;
+}
