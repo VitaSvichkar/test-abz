@@ -1,0 +1,20 @@
+.wrapHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 104px;
+    height: 26px;
+  }
+}
+
+.headerButtons {
+  display: flex;
+  gap: 10px;
+}

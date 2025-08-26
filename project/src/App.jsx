@@ -1,7 +1,11 @@
-import s from './App.module.scss';
+import { Header } from './Components/Header/Header';
 
 function App() {
-  return <div className={s.test}>test</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
