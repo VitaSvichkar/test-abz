@@ -1,0 +1,136 @@
+@use '../../styles/variables' as v;
+@import '../../styles/placeholders';
+
+.formBlock {
+  @extend %flexCenter;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.fields {
+  display: grid;
+  gap: 50px;
+
+  label {
+    position: relative;
+    color: v.$formTextColor;
+    border: 1px solid v.$borderColor;
+    border-radius: 4px;
+  }
+
+  & input {
+    padding: 13px 15px;
+    width: 100%;
+    line-height: 2.5rem; //2.6
+  }
+}
+
+.labelText {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  line-height: 2.5rem; //2.6
+}
+
+.helperText {
+  position: absolute;
+  bottom: -21px;
+  left: 15px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}
+
+.form {
+  display: grid;
+  gap: 43px;
+  width: 380px;
+}
+
+.fieldset {
+  border: none;
+
+  & legend {
+    margin-bottom: 10px;
+  }
+
+  & label {
+    padding-left: 33px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+  }
+
+  & label:last-child {
+    margin-bottom: 3px;
+  }
+}
+
+.radioBox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  padding-left: 20px;
+}
+
+.radioStyle {
+  position: absolute;
+  left: 0;
+  border: 1px solid v.$borderColor;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.radioBox:checked ~ .radioStyle:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: v.$secondaryColor;
+  border-radius: 50%;
+}
+
+.radioBox:checked + .radioStyle {
+  border: 1px solid v.$secondaryColor;
+}
+
+.wrapBtn {
+  & button {
+    margin: 0 auto;
+  }
+}
+
+.upload {
+  display: flex;
+  border-radius: 4px; //
+  color: v.$formTextColor;
+  margin-bottom: 6px;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+.fileUploadBtn {
+  border: 1px solid v.$colorBlack;
+  color: v.$colorBlack;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 13px 15px;
+}
+
+.fileUploadLabel {
+  border: 1px solid v.$borderColor; //
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-left: none;
+  padding: 13px 15px;
+  width: 100%;
+}
