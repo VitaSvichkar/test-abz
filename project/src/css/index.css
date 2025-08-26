@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("../assets/fonts/Nunito-Regular.woff2"), url("../assets/fonts/Nunito-Regular.woff");
+  font-display: swap;
+}
+a,
+button {
+  color: rgb(0, 0, 0);
+  background-color: rgb(244, 224, 65);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+}
+
+button:disabled {
+  background-color: rgb(180, 180, 180);
+  color: rgb(255, 255, 255);
+}
+
+a,
+button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+a,
+button, body,
+h3,
+input {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+h1,
+h2 {
+  font-size: 4rem;
+  line-height: 4rem;
+  font-weight: 400;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow-y: scroll;
+  background-color: rgb(248, 248, 248);
+}
+
+img {
+  display: block;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  border: none;
+}
+
+.signUpBtn {
+  padding-top: 4px;
+  padding-right: 22px;
+  padding-left: 23px;
+  padding-bottom: 4px;
+}
+
+.usersBtn {
+  padding-top: 4px;
+  padding-right: 29px;
+  padding-left: 29px;
+  padding-bottom: 4px;
+}
+
+.showMoreBtn {
+  padding-top: 4px;
+  padding-right: 18px;
+  padding-left: 19px;
+  padding-bottom: 4px;
+}
+
+.wrap {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}/*# sourceMappingURL=index.css.map */

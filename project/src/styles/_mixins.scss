@@ -1,0 +1,8 @@
+@mixin padding($top, $right, $bottom: $top, $left: $right) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-left: $left;
+  padding-bottom: $bottom;
+}
+
+// The buttons use different padding values on each side. To achieve pixel-perfect alignment with the design, asymmetric paddings were applied.

@@ -1,16 +1,77 @@
+@use './variables' as v;
+@import './mixins';
+@import './placeholders';
+
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.6rem;
-  line-height: 2.6rem;
-
-  color: blue;
+  overflow-y: scroll;
+  background-color: v.$bgColor;
 }
 
-h1 {
-  font-size: 4rem;
-  line-height: 4rem;
+body,
+h3,
+input {
+  @extend %fontNormal;
+}
+
+h1,
+h2 {
+  @extend %fontHeaders;
+}
+
+img {
+  display: block;
+}
+
+header {
+  background-color: v.$colorWhite;
+}
+
+a,
+button {
+  @extend %styleButtons;
+  @extend %fontNormal;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  border: none;
+}
+
+button:disabled {
+  @extend %disabledBtn;
+}
+
+.signUpBtn {
+  @include padding(4px, 22px, 4px, 23px);
+}
+
+.usersBtn {
+  @include padding(4px, 29px);
+}
+
+.showMoreBtn {
+  @include padding(4px, 18px, 4px, 19px);
+}
+
+.wrap {
+  max-width: v.$widthContent;
+  margin: 0 auto;
+  padding-bottom: 100px;
 }
