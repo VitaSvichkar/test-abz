@@ -1,0 +1,35 @@
+@use '../../styles/variables' as v;
+@import '../../styles/placeholders';
+
+.heroWrap {
+  @extend %flexCenter;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroImg {
+  height: 650px;
+  width: 100%;
+  background-image: url('../../../../public/bg.jpeg');
+  background-size: cover;
+  transform: scale(2.2);
+  background-position: 0px -209px;
+}
+
+.hero {
+  @extend %flexCenter;
+  flex-direction: column;
+  position: absolute;
+  z-index: 100;
+  color: v.$colorWhite;
+  max-width: 380px;
+  text-align: center;
+
+  & h1 {
+    padding-bottom: 21px;
+  }
+
+  & .heroDescription {
+    padding-bottom: 32px;
+  }
+}
