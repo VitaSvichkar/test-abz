@@ -1,41 +1,62 @@
+import { useMemo } from 'react';
 import userIco from '../../../assets/img/userBg.svg';
 import c from './_user.module.scss';
 
-export const User = () => {
+export const User = ({ user }) => {
+  const { email, phone, photo, name, position } = user;
+  const photoUser = photo?.toLowerCase().includes('/images/users');
+
+  const changePhoneStyle = useMemo(() => {
+    const digits = phone.replace(/\D/g, '');
+
+    if (digits.length === 12) {
+      return digits.replace(
+        /^(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})$/,
+        '+$1 ($2) $3 $4 $5'
+      );
+    }
+
+    if (digits.length === 10) {
+      return digits.replace(
+        /^(\d{3})(\d{3})(\d{2})(\d{2})$/,
+        '+38 ($1) $2 $3 $4'
+      );
+    }
+
+    return phone ?? '';
+  }, [phone]);
+
   return (
-    <article
-      className={c.user}
-      itemscope
-      itemtype="https://schema.org/SportsTeam"
-    >
+    <article className={c.user} itemScope itemType="https://schema.org/Person">
       <div className={c.userPhoto}>
-        <img src={userIco} alt="user photo" />
+        <img src={photoUser ? photo : userIco} alt={name} />
       </div>
 
-      <h3
-        itemProp="name"
-        className={c.name}
-        title="Salvador Stewart Flynn Thomas Salva Salve шгкуп щшук щшцура"
-      >
-        Salvador Stewart Flynn Thomas Salva Salve шгкуп щшук щшцура
+      <h3 itemProp="name" className={c.name} title={name}>
+        {name}
       </h3>
 
-      <div>
-        <span itemProp="jobTitle" className={c.jobTitle}>
-          Leading specialist of the department of cent fujru eufh ueh4i euih
-          iweuh woeiuhr oiwh4tr oiwh
+      <div className={c.userInfo}>
+        <span itemProp="jobTitle" className={c.jobTitle} title={position}>
+          {position}
         </span>
 
         <a
+          className={c.email}
           itemProp="email"
-          href="mailto:frontend_develop@gmail.com"
-          title="frontend_develop@gmail.com"
+          href={`mailto:${email}`}
+          title={email}
         >
-          frontend_develop@gmail.com
+          {email}
         </a>
 
-        <a itemProp="telephone" href="tel:+380982784424">
-          +38 (098) 278 44 24
+        <a
+          className={c.phone}
+          itemProp="telephone"
+          href={`tel:${phone}`}
+          title={phone}
+        >
+          {changePhoneStyle}
         </a>
       </div>
     </article>

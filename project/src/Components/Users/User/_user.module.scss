@@ -9,22 +9,36 @@
   max-width: 370px;
   border-radius: 10px;
   padding: 20px;
-  text-align: left;
-
-  & a {
-    background: transparent;
-    width: auto;
-  }
 
   & .name,
   & .jobTitle {
     @extend %noWrapText;
+    text-align: center;
   }
+}
+
+.userInfo {
+  width: 100%;
+  min-width: 0;
+
+  & a {
+    background-color: transparent;
+  }
+}
+
+.email {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .userPhoto {
   width: 70px;
   height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
 
   & img {
     width: 100%;
