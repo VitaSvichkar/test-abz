@@ -1,0 +1,30 @@
+@use '../../../styles/variables' as v;
+
+.upload {
+  display: flex;
+  border-radius: 4px; //
+  color: v.$formTextColor;
+  margin-bottom: 6px;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+.fileUploadBtn {
+  border: 1px solid v.$colorBlack;
+  color: v.$colorBlack;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 13px 15px;
+}
+
+.fileUploadLabel {
+  border: 1px solid v.$borderColor; //
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-left: none;
+  padding: 13px 15px;
+  width: 100%;
+}

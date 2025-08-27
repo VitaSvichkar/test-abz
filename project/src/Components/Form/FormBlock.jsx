@@ -1,90 +1,40 @@
 import c from './_formBlock.module.scss';
+import { useEffect, useState } from 'react';
+import { Position } from './Positions/Position';
+import { getPositions } from '../../api/positions';
+import { Input } from './Input/Input';
+import { UploadFile } from './UploadFile/UploadFile';
 
 export const FormBlock = () => {
+  const [positions, setPositions] = useState([]);
+
+  useEffect(() => {
+    getPositions().then((data) => setPositions(data.positions));
+  }, []);
+
   return (
     <section className={c.formBlock} id="signUp">
       <h2>Working with POST request</h2>
 
       <form className={c.form}>
         <div className={c.fields}>
-          <label>
-            <span className={c.labelText}>Your name</span>
-            <input type="text" />
-          </label>
-
-          <label>
-            <span className={c.labelText}>Email</span>
-            <input type="email" />
-          </label>
-
-          <label>
-            <span className={c.labelText}>Phone</span>
-            <span className={c.helperText}>+38 (XXX) XXX - XX - XX</span>
-            <input type="phone" />
-          </label>
+          <Input text="Your name" type="text" />
+          <Input text="Email" type="email" />
+          <Input text="Phone" type="tel" helperText="+38 (XXX) XXX - XX - XX" />
         </div>
 
+        {/* Positions */}
         <fieldset className={c.fieldset}>
           <legend>Select your position</legend>
-
           <div className={c.positions}>
-            <label>
-              <input
-                className={c.radioBox}
-                type="radio"
-                name="position"
-                value="frontend"
-                required
-              />
-              <span className={c.radioStyle}></span>
-              Frontend developer
-            </label>
-
-            <label>
-              <input
-                className={c.radioBox}
-                type="radio"
-                name="position"
-                value="backend"
-                required
-              />
-              <span className={c.radioStyle}></span>
-              Backend developer
-            </label>
-
-            <label>
-              <input
-                className={c.radioBox}
-                type="radio"
-                name="position"
-                value="designer"
-                required
-              />
-              <span className={c.radioStyle}></span>
-              Designer
-            </label>
-
-            <label>
-              <input
-                className={c.radioBox}
-                type="radio"
-                name="position"
-                value="qa"
-                required
-              />
-              <span className={c.radioStyle}></span>
-              QA
-            </label>
+            {positions.map((position) => (
+              <Position key={position.id} name={position.name} />
+            ))}
           </div>
         </fieldset>
 
-        <label>
-          <div className={c.upload}>
-            <input type="file" />
-            <span className={c.fileUploadBtn}>Upload</span>
-            <span className={c.fileUploadLabel}>Upload your photo</span>
-          </div>
-        </label>
+        {/* Upload File */}
+        <UploadFile />
 
         <div className={c.wrapBtn}>
           <button className="signUpBtn" disabled>

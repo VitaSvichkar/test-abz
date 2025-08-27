@@ -1,0 +1,38 @@
+@use '../../../styles/variables' as v;
+
+.label {
+  position: relative;
+  color: v.$formTextColor;
+  border: 1px solid v.$borderColor;
+  border-radius: 4px;
+}
+
+.labelText {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  line-height: 2.5rem; //2.6
+  background-color: v.$bgColor;
+  padding: 0 4px;
+  transition: top 0.2s ease, font-size 0.2s ease, line-height 0.2s ease;
+}
+
+.helperText {
+  display: none;
+  position: absolute;
+  bottom: -21px;
+  left: 15px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}
+
+.input {
+  padding: 13px 15px;
+  width: 100%;
+  line-height: 2.5rem; //2.6
+  background-color: transparent;
+}
+
+.input:focus ~ .helperText {
+  display: block;
+}
