@@ -2,16 +2,18 @@
 
 %styleButtons {
   @extend %flexCenter;
-  color: rgb(0, 0, 0);
+  color: v.$colorBlack;
   background-color: v.$primaryColor;
   cursor: pointer;
   text-align: center;
   border-radius: 50px;
+  transition: all 0.2s ease;
 }
 
 %disabledBtn {
   background-color: v.$btnDisabled;
   color: v.$colorWhite;
+  cursor: default;
 }
 
 %flexCenter {

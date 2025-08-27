@@ -3,22 +3,27 @@
   src: url("../assets/fonts/Nunito-Regular.woff2"), url("../assets/fonts/Nunito-Regular.woff");
   font-display: swap;
 }
-a,
-button {
+.signUpBtn,
+.usersBtn,
+.showMoreBtn {
   color: rgb(0, 0, 0);
   background-color: rgb(244, 224, 65);
   cursor: pointer;
   text-align: center;
   border-radius: 50px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 button:disabled {
   background-color: rgb(180, 180, 180);
   color: rgb(255, 255, 255);
+  cursor: default;
 }
 
-a,
-button {
+.signUpBtn,
+.usersBtn,
+.showMoreBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,8 +35,9 @@ button {
           align-items: center;
 }
 
-a,
-button, body,
+.signUpBtn,
+.usersBtn,
+.showMoreBtn, body,
 h3,
 input {
   font-family: "Nunito", sans-serif;
@@ -75,8 +81,15 @@ header {
   background-color: rgb(255, 255, 255);
 }
 
+.signUpBtn:not(:disabled):hover,
+.usersBtn:not(:disabled):hover,
+.showMoreBtn:not(:disabled):hover {
+  background-color: rgb(255, 227, 2);
+}
+
 a {
   text-decoration: none;
+  color: rgb(0, 0, 0);
 }
 
 button,
