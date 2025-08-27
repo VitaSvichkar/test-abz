@@ -33,6 +33,13 @@
   background-color: transparent;
 }
 
+.input:focus + .labelText,
+.input:not(:placeholder-shown) + .labelText {
+  top: -5px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}
+
 .input:focus ~ .helperText {
   display: block;
 }
