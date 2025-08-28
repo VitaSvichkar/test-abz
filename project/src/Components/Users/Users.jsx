@@ -4,26 +4,61 @@ import { getUsers } from '../../api/users';
 import c from './_users.module.scss';
 import { Preloader } from '../Preloader/Preloader';
 
-export const Users = () => {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const isNextLink = useRef(true);
+// Added a check for total pages and request success to handle cases when API returns a broken next_url
 
-  function handleGetMoreUsers() {
-    if (isNextLink.current) {
-      setIsLoading(true);
-      getUsers(isNextLink.current).then((data) => {
-        isNextLink.current = data.links.next_url;
-        setUsers((prev) => [...prev, ...data.users]);
+export const Users = () => {
+  const [usersData, setUsersData] = useState({
+    users: [],
+    totalPages: null,
+    page: null,
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const isNextLink = useRef(null);
+  const isNextPage = usersData.page < usersData.totalPages;
+  const isShowBtn = !isLoading && isNextLink.current && isNextPage;
+
+  async function handleGetMoreUsers() {
+    console.log(isNextLink.current, isNextPage);
+    if (!isNextLink.current || !isNextPage) return;
+    setIsLoading(true);
+
+    try {
+      const data = await getUsers(isNextLink.current);
+      console.log(data);
+
+      if (!data.success) {
+        isNextLink.current = null;
         setIsLoading(false);
-      });
+        return;
+      }
+
+      isNextLink.current = data.links.next_url;
+
+      setUsersData((prev) => ({
+        ...prev,
+        users: [...prev.users, ...data.users],
+        totalPages: data?.total_pages,
+        page: data?.page,
+      }));
+    } catch (error) {
+      console.log(error);
+      isNextLink.current = null;
+    } finally {
+      setIsLoading(false);
     }
   }
 
   useEffect(() => {
     getUsers().then((data) => {
       isNextLink.current = data.links.next_url;
-      setUsers(() => data.users);
+
+      setUsersData((prev) => ({
+        ...prev,
+        users: [...prev.users, ...data.users],
+        totalPages: data?.total_pages,
+        page: data?.page,
+      }));
     });
   }, []);
 
@@ -32,14 +67,14 @@ export const Users = () => {
       <h2 className={c.title}>Working with GET request</h2>
 
       <div className={c.usersCards}>
-        {users.map((user) => (
+        {usersData.users.map((user) => (
           <User key={user.id} user={user} />
         ))}
       </div>
 
       {isLoading && <Preloader />}
 
-      {!isLoading && isNextLink.current && (
+      {isShowBtn && (
         <button className="showMoreBtn" onClick={handleGetMoreUsers}>
           Show more
         </button>
