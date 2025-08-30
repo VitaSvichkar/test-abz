@@ -42,3 +42,11 @@
   -webkit-line-clamp: 1;
   overflow: hidden;
 }
+
+%HelperOrErrorText {
+  position: absolute;
+  bottom: -21px;
+  left: 15px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}

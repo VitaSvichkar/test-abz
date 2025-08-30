@@ -1,4 +1,5 @@
-@use '../../../styles/variables' as v;
+@use '../../../../styles/variables' as v;
+@import '../../../../styles/placeholders';
 
 .label {
   position: relative;
@@ -13,21 +14,16 @@
   left: 15px;
   line-height: 2.5rem; //2.6
   background-color: v.$bgColor;
-  padding: 0 4px;
+  // padding: 0 4px;
   transition: top 0.2s ease, font-size 0.2s ease, line-height 0.2s ease;
 }
 
 .helperText {
-  position: absolute;
-  bottom: -21px;
-  left: 15px;
-  font-size: 1.2rem;
-  line-height: 1.4rem;
+  @extend %HelperOrErrorText;
 }
 
 .label.error {
-  color: v.$formErrorColor;
-  border: 2px solid v.$formErrorColor;
+  border: v.$borderError;
 }
 
 .input {

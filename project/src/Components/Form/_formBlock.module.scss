@@ -7,23 +7,10 @@
   gap: 50px;
 }
 
-.fields {
-  display: grid;
-  gap: 50px;
-}
-
 .form {
   display: grid;
   gap: 43px;
   width: 380px;
-}
-
-.fieldset {
-  border: none;
-
-  & legend {
-    margin-bottom: 10px;
-  }
 }
 
 .wrapBtn {

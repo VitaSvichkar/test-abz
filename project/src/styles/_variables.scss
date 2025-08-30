@@ -11,6 +11,8 @@ $formErrorColor: rgb(203, 61, 64);
 $btnDisabled: rgb(180, 180, 180);
 $borderColor: rgb(208, 207, 207);
 
+$borderError: 2px solid $formErrorColor;
+
 $widthContent: 1170px;
 $widthLaptop: 1024px;
 $widthTablet: 768px;

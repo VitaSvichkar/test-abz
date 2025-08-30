@@ -1,0 +1,7 @@
+.fieldset {
+  border: none;
+
+  & legend {
+    margin-bottom: 10px;
+  }
+}

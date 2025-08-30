@@ -1,0 +1,7 @@
+@use '../../../styles/variables' as v;
+@import '../../../styles/placeholders';
+
+.error {
+  @extend %HelperOrErrorText;
+  color: v.$formErrorColor;
+}

@@ -1,13 +1,20 @@
-@use '../../../styles/variables' as v;
+@use '../../../../styles/variables' as v;
 
 .upload {
+  position: relative;
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.uploadInp {
   display: flex;
   border-radius: 4px; //
-  color: v.$formTextColor;
-  margin-bottom: 6px;
+  cursor: pointer;
 
   & input {
     position: absolute;
+    width: 1px;
+    height: 1px;
     opacity: 0;
   }
 }
@@ -21,10 +28,24 @@
 }
 
 .fileUploadLabel {
-  border: 1px solid v.$borderColor; //
+  border: 1px solid v.$borderColor;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   border-left: none;
   padding: 13px 15px;
   width: 100%;
+  color: v.$formTextColor;
+}
+
+.fileUploadLabel.error,
+.fileUploadBtn.error {
+  border: 2px solid v.$formErrorColor;
+}
+
+.fileUploadLabel.error {
+  border-left: none;
+}
+
+.fileNameStyle {
+  color: v.$colorBlack;
 }
