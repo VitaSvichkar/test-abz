@@ -9,30 +9,20 @@
   max-width: 370px;
   border-radius: 10px;
   padding: 20px;
-
-  & .name,
-  & .jobTitle {
-    @extend %noWrapText;
-    text-align: center;
-  }
 }
 
 .userInfo {
+  @extend %flexCenter;
+  flex-direction: column;
   width: 100%;
   min-width: 0;
-  text-align: center;
-
-  & a {
-    background-color: transparent;
-  }
 }
 
-.email {
-  display: block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.email,
+.name,
+.jobTitle {
+  @extend %textEllipsis;
+  text-align: center;
 }
 
 .userPhoto {

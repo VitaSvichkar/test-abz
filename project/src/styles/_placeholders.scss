@@ -36,11 +36,18 @@
   font-weight: 400;
 }
 
-%noWrapText {
+%lineClamp1 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+}
+
+%textEllipsis {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 %HelperOrErrorText {
