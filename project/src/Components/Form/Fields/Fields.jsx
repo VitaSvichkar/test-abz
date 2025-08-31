@@ -27,7 +27,8 @@ export const Fields = ({ watch, touchedFields, errors, register }) => {
             value: /^[A-Za-z\s]+$/,
             message: 'Only English letters allowed',
           },
-          maxLength: { value: 30, message: 'Maximum 30 characters' },
+          minLength: { value: 2, message: 'Minimum 2 characters' },
+          maxLength: { value: 60, message: 'Maximum 60 characters' },
         })}
       />
 
