@@ -1,31 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { User } from './User/User';
-import { getUsers } from '../../api/users';
+import { getUsers } from '../../api/getUsers';
 import c from './_users.module.scss';
 import { Preloader } from '../Preloader/Preloader';
 
 // Added a check for total pages and request success to handle cases when API returns a broken next_url
 
-export const Users = () => {
-  const [usersData, setUsersData] = useState({
-    users: [],
-    totalPages: null,
-    page: null,
-  });
-
+export const Users = ({ setUsersData, usersData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const isNextLink = useRef(null);
   const isNextPage = usersData.page < usersData.totalPages;
   const isShowBtn = !isLoading && isNextLink.current && isNextPage;
 
   async function handleGetMoreUsers() {
-    console.log(isNextLink.current, isNextPage);
     if (!isNextLink.current || !isNextPage) return;
     setIsLoading(true);
 
     try {
       const data = await getUsers(isNextLink.current);
-      console.log(data);
 
       if (!data.success) {
         isNextLink.current = null;
@@ -55,19 +47,19 @@ export const Users = () => {
 
       setUsersData((prev) => ({
         ...prev,
-        users: [...prev.users, ...data.users],
+        users: [...data.users],
         totalPages: data?.total_pages,
         page: data?.page,
       }));
     });
-  }, []);
+  }, [setUsersData]);
 
   return (
     <section className={c.users} id="users">
       <h2 className={c.title}>Working with GET request</h2>
 
       <div className={c.usersCards}>
-        {usersData.users.map((user) => (
+        {usersData?.users.map((user) => (
           <User key={user.id} user={user} />
         ))}
       </div>

@@ -5,6 +5,10 @@
   @extend %flexCenter;
   flex-direction: column;
   gap: 50px;
+
+  & h2 {
+    position: relative;
+  }
 }
 
 .form {
