@@ -6,30 +6,31 @@ export const InputFile = forwardRef(
   ({ fileName, errors, touched, ...props }, ref) => {
     return (
       <div className={c.upload}>
-        <label>
-          <div className={c.uploadInp}>
-            <input
-              type="file"
-              ref={ref}
-              {...props}
-              accept=".jpg,.jpeg,.png"
-              required={true}
-            />
-            <span className={`${c.fileUploadBtn} ${!!errors && c.error}`}>
-              Upload
-            </span>
-          </div>
-        </label>
+        <div className={c.wrapUpload}>
+          <label>
+            <div className={c.uploadInp}>
+              <input
+                type="file"
+                ref={ref}
+                {...props}
+                accept="image/jpeg,image/jpg"
+              />
 
+              <span className={`${c.fileUploadBtn} ${!!errors && c.error}`}>
+                Upload
+              </span>
+            </div>
+          </label>
+
+          <span
+            className={`${c.fileUploadLabel} ${errors ? c.error : ''} ${
+              touched ? c.fileNameStyle : ''
+            }`}
+          >
+            {fileName || 'Upload your photo'}
+          </span>
+        </div>
         {errors && <Error text={errors.message} />}
-
-        <span
-          className={`${c.fileUploadLabel} ${errors ? c.error : ''} ${
-            touched ? c.fileNameStyle : ''
-          }`}
-        >
-          {fileName || 'Upload your photo'}
-        </span>
       </div>
     );
   }

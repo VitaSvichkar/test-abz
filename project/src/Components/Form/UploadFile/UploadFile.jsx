@@ -1,8 +1,7 @@
-// import { resolve } from 'path';
 import { InputFile } from './InputFile/InputFile';
 
 export const UploadFile = ({ watch, errors, touchedFields, register }) => {
-  const uploadValArr = watch('upload') ?? '';
+  const uploadValArr = watch('upload');
 
   const fileName =
     uploadValArr && uploadValArr.length > 0 ? uploadValArr[0].name : undefined;
@@ -13,22 +12,17 @@ export const UploadFile = ({ watch, errors, touchedFields, register }) => {
       errors={errors.upload}
       touched={touchedFields?.upload}
       {...register('upload', {
-        required: 'This field is required',
         validate: {
           fileTypeAndSize: (files) => {
-            if (!files || files.length === 0) {
-              return 'This field is required';
-            }
+            const file = files?.[0];
 
-            const file = files[0];
-            const fileName = file.name.toLowerCase();
-            const fileSize = file.size;
+            if (!file) return true;
 
-            if (!/\.(jpg|jpeg)$/i.test(fileName)) {
+            if (file.type !== 'image/jpeg') {
               return 'Only JPG/JPEG files allowed';
             }
 
-            if (fileSize > 5 * 1024 * 1024) {
+            if (file.size > 5 * 1024 * 1024) {
               return 'The photo size must not be greater than 5 Mb';
             }
 
