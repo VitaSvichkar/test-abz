@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import userIco from '../../../assets/img/userBg.svg';
+import userBg from '/public/userBg.jpg';
 import c from './_user.module.scss';
 
 export const User = ({ user }) => {
-  const { email, phone, photo, name, position } = user;
+  const { email = '', phone = '', photo = '', name = '', position = '' } = user;
   const photoUser = photo?.toLowerCase().includes('/images/users');
 
   const changePhoneStyle = useMemo(() => {
@@ -29,7 +29,7 @@ export const User = ({ user }) => {
   return (
     <article className={c.user} itemScope itemType="https://schema.org/Person">
       <div className={c.userPhoto}>
-        <img src={photoUser ? photo : userIco} alt={name} />
+        <img src={photoUser ? photo : userBg} alt={name} />
       </div>
 
       <h3 itemProp="name" className={c.name} title={name}>
