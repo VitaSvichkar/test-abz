@@ -9,9 +9,11 @@ import { registration } from '../../api/registration';
 import formBg from '/public/formBg.svg';
 import { getUsers } from '../../api/getUsers';
 import { Error } from './Error/Error';
+import { Preloader } from '../Preloader/Preloader';
 
 export const FormBlock = ({ setUsersData }) => {
   const [positions, setPositions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [responseStatus, setResponseStatus] = useState({
     success: false,
     message: '',
@@ -46,6 +48,7 @@ export const FormBlock = ({ setUsersData }) => {
   }
 
   const onSubmit = async (data) => {
+    setIsLoading(true);
     let res;
     try {
       const photo = data.upload?.[0] ? data.upload[0] : await getUserBg();
@@ -75,8 +78,10 @@ export const FormBlock = ({ setUsersData }) => {
         }
       }
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     } finally {
+      setIsLoading(false);
       setResponseStatus((prev) => ({
         ...prev,
         success: res.success,
@@ -122,9 +127,13 @@ export const FormBlock = ({ setUsersData }) => {
           />
 
           <div className={c.wrapBtn}>
-            <button className="signUpBtn" disabled={!isValid}>
-              Sign up
-            </button>
+            {!isLoading ? (
+              <button className="signUpBtn" disabled={!isValid}>
+                Sign up
+              </button>
+            ) : (
+              <Preloader />
+            )}
           </div>
         </form>
       ) : (
