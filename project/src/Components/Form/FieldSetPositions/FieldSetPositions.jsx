@@ -11,6 +11,7 @@ export const FieldSetPositions = ({ positions, errors, register }) => {
             key={position.id}
             position={position.name}
             errors={errors.position}
+            id={position.id}
             {...register('position', {
               required: 'This field is required',
             })}
