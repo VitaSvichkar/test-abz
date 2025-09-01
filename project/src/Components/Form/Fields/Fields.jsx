@@ -40,9 +40,9 @@ export const Fields = ({ watch, touchedFields, errors, register }) => {
         errors={errors?.email}
         {...register('email', {
           required: 'This field is required',
-          maxLength: { value: 50, message: 'Maximum 50 characters' },
           pattern: {
-            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            value:
+              /^(?!\.)(?!.*\.\.)[a-zA-Z0-9._%+-]{1,64}(?<!\.)@(?:[A-Za-z0-9-]+\.)+[A-Za-z]{2,}$/,
             message: 'Invalid email address',
           },
         })}
