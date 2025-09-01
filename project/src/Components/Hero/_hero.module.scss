@@ -1,17 +1,20 @@
 @use '../../styles/variables' as v;
 @import '../../styles/placeholders';
+@import '../../styles/mixins';
 
 .heroWrap {
   @extend %flexCenter;
   position: relative;
   overflow: hidden;
+  height: 650px;
 }
 
 .heroImg {
-  height: 650px;
+  height: 100%;
   width: 100%;
   background-image: url('../../../../public/bg.jpeg');
   background-size: cover;
+  background-repeat: no-repeat;
   transform: scale(2.2);
   background-position: 0px -209px;
 }
@@ -31,5 +34,11 @@
 
   & .heroDescription {
     padding-bottom: 32px;
+  }
+}
+
+@include laptop {
+  .heroImg {
+    background-position: -79px -143px;
   }
 }

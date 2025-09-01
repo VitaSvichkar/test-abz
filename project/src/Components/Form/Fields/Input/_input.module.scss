@@ -5,16 +5,17 @@
   position: relative;
   color: v.$formTextColor;
   border: 1px solid v.$borderColor;
+  height: 54px;
   border-radius: 4px;
+  box-sizing: border-box;
+  padding: 14px 16px;
 }
 
 .labelText {
   position: absolute;
-  top: 13px;
-  left: 15px;
-  line-height: 2.5rem; //2.6
-  background-color: v.$bgColor;
-  // padding: 0 4px;
+  top: 14px;
+  left: 16px;
+  line-height: 2.6rem;
   transition: top 0.2s ease, font-size 0.2s ease, line-height 0.2s ease;
 }
 
@@ -27,9 +28,8 @@
 }
 
 .input {
-  padding: 13px 15px;
   width: 100%;
-  line-height: 2.5rem; //2.6
+  line-height: 2.6rem;
   background-color: transparent;
 }
 

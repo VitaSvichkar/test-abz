@@ -1,3 +1,5 @@
+@use './variables' as v;
+
 @mixin padding($top, $right, $bottom: $top, $left: $right) {
   padding-top: $top;
   padding-right: $right;
@@ -6,3 +8,21 @@
 }
 
 // The buttons use different padding values on each side. To achieve pixel-perfect alignment with the design, asymmetric paddings were applied.
+
+@mixin laptop() {
+  @media screen and (max-width: v.$widthLaptop) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media screen and (max-width: v.$widthTablet) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media screen and (max-width: v.$widthMobile) {
+    @content;
+  }
+}
