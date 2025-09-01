@@ -1,5 +1,6 @@
 @use '../../styles/variables' as v;
 @import '../../styles/placeholders';
+@import '../../styles/mixins';
 
 .formBlock {
   @extend %flexCenter;
@@ -8,17 +9,28 @@
 
   & h2 {
     position: relative;
+    text-align: center;
   }
 }
 
 .form {
   display: grid;
   gap: 44px;
-  width: 380px;
+  max-width: 380px; // and .upload in InputFile component
 }
 
 .wrapBtn {
   & * {
     margin: 0 auto;
+  }
+}
+
+@include mobile {
+  .formBlock {
+    padding: 0 16px;
+  }
+
+  .form {
+    width: 328px; // and .upload in InputFile component
   }
 }

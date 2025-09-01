@@ -32,3 +32,9 @@
     padding: 13px 32px;
   }
 }
+
+@include mobile {
+  .wrapHeader {
+    padding: 13px 16px;
+  }
+}
