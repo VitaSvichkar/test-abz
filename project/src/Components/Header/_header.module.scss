@@ -26,3 +26,9 @@
     padding: 13px 60px;
   }
 }
+
+@include tablet {
+  .wrapHeader {
+    padding: 13px 32px;
+  }
+}

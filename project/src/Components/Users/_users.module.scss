@@ -23,3 +23,14 @@
     padding: 140px 60px;
   }
 }
+
+@include tablet {
+  .users {
+    padding: 140px 32px;
+  }
+
+  .usersCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
