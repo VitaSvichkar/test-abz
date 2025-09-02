@@ -11,10 +11,12 @@
 .heroImg {
   height: 100%;
   width: 100%;
-  background: url('/bg.jpeg');
-  background-size: 220%;
+  background: url('/bgHero/bgHero.jpg');
+  background: image-set(
+    url('/bgHero/bgHero.jpg') 1x,
+    url('/bgHero/bgHero@2x.jpg') 2x
+  );
   background-repeat: no-repeat;
-  background-position: left -700px bottom -215px;
 }
 
 .heroWrap:after {
@@ -49,8 +51,11 @@
 
 @include laptop {
   .heroImg {
-    background-size: 340% 165%;
-    background-position: left -1260px bottom -6px;
+    background: url('/bgHero/bgHeroLaptop.jpg');
+    background: image-set(
+      url('/bgHero/bgHeroLaptop.jpg') 1x,
+      url('/bgHero/bgHeroLaptop@2x.jpg') 2x
+    );
   }
 }
 
@@ -64,8 +69,11 @@
   }
 
   .heroImg {
-    background-size: 340% 165%;
-    background-position: left -944px bottom -5px;
+    background: url('/bgHero/bgHeroTablet.jpg');
+    background: image-set(
+      url('/bgHero/bgHeroTablet.jpg') 1x,
+      url('/bgHero/bgHeroTablet@2x.jpg') 2x
+    );
   }
 }
 
@@ -73,8 +81,12 @@
   .hero {
     padding-top: 40px;
   }
+
   .heroImg {
-    background-size: 340% 165%;
-    background-position: left -442px bottom -5px;
+    background: url('/bgHero/bgHeroMobile.jpg');
+    background: image-set(
+      url('/bgHero/bgHeroMobile.jpg') 1x,
+      url('/bgHero/bgHeroMobile@2x.jpg') 2x
+    );
   }
 }
