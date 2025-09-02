@@ -34,3 +34,14 @@
     gap: 16px;
   }
 }
+
+@include mobile {
+  .users {
+    padding: 140px 16px;
+  }
+
+  .usersCards {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+  }
+}

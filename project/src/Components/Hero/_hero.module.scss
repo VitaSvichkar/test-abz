@@ -3,29 +3,29 @@
 @import '../../styles/mixins';
 
 .heroWrap {
-  @extend %flexCenter;
-  position: relative;
+  // position: relative;
   overflow: hidden;
   height: 650px;
+  background-color: gold;
 }
 
 .heroImg {
+  background-color: lawngreen;
   height: 100%;
   width: 100%;
   background-image: url('../../../../public/bg.jpeg');
-  background-size: cover;
+  background-size: 220%;
   background-repeat: no-repeat;
-  transform: scale(2.2);
-  background-position: 0px -209px;
+  background-position: left -700px bottom -215px;
 }
 
 .hero {
   @extend %flexCenter;
   flex-direction: column;
-  position: absolute;
-  z-index: 100;
   color: v.$colorWhite;
-  max-width: 380px;
+  max-width: 412px; // 380 + 16*2
+  padding: 164px 16px 0;
+  margin: 0 auto;
   text-align: center;
 
   & h1 {
@@ -39,7 +39,8 @@
 
 @include laptop {
   .heroImg {
-    background-position: -79px -143px;
+    background-size: 340% 165%;
+    background-position: left -1260px bottom -6px;
   }
 }
 
@@ -48,7 +49,22 @@
     height: 500px;
   }
 
+  .hero {
+    padding-top: 89px;
+  }
+
   .heroImg {
-    background-position: -60px -100px;
+    background-size: 340% 165%;
+    background-position: left -944px bottom -5px;
+  }
+}
+
+@include mobile {
+  .hero {
+    padding-top: 40px;
+  }
+  .heroImg {
+    background-size: 340% 165%;
+    background-position: left -442px bottom -5px;
   }
 }

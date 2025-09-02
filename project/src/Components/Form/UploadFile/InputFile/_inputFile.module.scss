@@ -1,8 +1,9 @@
 @use '../../../../styles/variables' as v;
 @import '../../../../styles/placeholders';
+@import '../../../../styles/mixins';
 
 .upload {
-  width: 380px;
+  max-width: 380px;
   position: relative;
   margin-bottom: 6px;
 }
@@ -53,4 +54,10 @@
 
 .fileNameStyle {
   color: v.$colorBlack;
+}
+
+@include mobile {
+  .upload {
+    width: 328px;
+  }
 }
