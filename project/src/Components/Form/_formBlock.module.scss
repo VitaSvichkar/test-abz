@@ -16,7 +16,8 @@
 .form {
   display: grid;
   gap: 44px;
-  max-width: 380px; // and .upload in InputFile component
+  width: 380px; // and .upload in InputFile component
+  max-width: 100%;
 }
 
 .wrapBtn {
@@ -32,5 +33,6 @@
 
   .form {
     width: 328px; // and .upload in InputFile component
+    max-width: 100%;
   }
 }
