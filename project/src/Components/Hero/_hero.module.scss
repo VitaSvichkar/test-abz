@@ -3,14 +3,11 @@
 @import '../../styles/mixins';
 
 .heroWrap {
-  // position: relative;
   overflow: hidden;
   height: 650px;
-  background-color: gold;
 }
 
 .heroImg {
-  background-color: lawngreen;
   height: 100%;
   width: 100%;
   background-image: url('../../../../public/bg.jpeg');
