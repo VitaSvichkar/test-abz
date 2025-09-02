@@ -15,7 +15,11 @@ export const Input = forwardRef(
           ref={ref}
           {...props}
         />
-        <span className={c.labelText}>{text}</span>
+        <span
+          className={`${errors ? `${c.error} ${c.labelText}` : c.labelText}`}
+        >
+          {text}
+        </span>
 
         {showError ? (
           <Error text={errors?.message} />

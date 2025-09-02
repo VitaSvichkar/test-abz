@@ -12,19 +12,17 @@
 }
 
 .labelText {
+  padding: 0 4px;
+  background-color: v.$bgColor;
   position: absolute;
   top: 14px;
-  left: 16px;
+  left: 12px;
   line-height: 2.6rem;
   transition: top 0.2s ease, font-size 0.2s ease, line-height 0.2s ease;
 }
 
 .helperText {
   @extend %HelperOrErrorText;
-}
-
-.label.error {
-  border: v.$borderError;
 }
 
 .input {
@@ -35,7 +33,21 @@
 
 .input:focus + .labelText,
 .input:not(:placeholder-shown) + .labelText {
-  top: -5px;
+  top: -7px;
   font-size: 1.2rem;
   line-height: 1.4rem;
+}
+
+//error
+
+.label.error {
+  border: v.$borderError;
+}
+
+.labelText.error {
+  color: v.$colorBlack;
+}
+
+.input:focus + .labelText.error {
+  color: v.$formErrorColor;
 }
