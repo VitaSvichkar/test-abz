@@ -51,16 +51,6 @@
   }
 }
 
-@include laptop {
-  .heroImg {
-    background: url('/bgHero/bgHeroLaptop.jpg');
-    background: image-set(
-      url('/bgHero/bgHeroLaptop.jpg') 1x,
-      url('/bgHero/bgHeroLaptop@2x.jpg') 2x
-    );
-  }
-}
-
 @include tablet {
   .heroWrap {
     height: 500px;
@@ -69,26 +59,10 @@
   .heroText {
     padding-top: 89px;
   }
-
-  .heroImg {
-    background: url('/bgHero/bgHeroTablet.jpg');
-    background: image-set(
-      url('/bgHero/bgHeroTablet.jpg') 1x,
-      url('/bgHero/bgHeroTablet@2x.jpg') 2x
-    );
-  }
 }
 
 @include mobile {
   .heroText {
     padding-top: 40px;
-  }
-
-  .heroImg {
-    background: url('/bgHero/bgHeroMobile.jpg');
-    background: image-set(
-      url('/bgHero/bgHeroMobile.jpg') 1x,
-      url('/bgHero/bgHeroMobile@2x.jpg') 2x
-    );
   }
 }
