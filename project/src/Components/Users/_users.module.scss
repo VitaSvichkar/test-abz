@@ -35,7 +35,7 @@
   }
 }
 
-@include mobile {
+@media screen and (max-width: 470px) {
   .users {
     padding: 140px 16px;
   }
