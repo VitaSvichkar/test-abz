@@ -102,7 +102,9 @@ export const FormBlock = ({ setUsersData }) => {
         )}
       </h2>
 
-      {!responseStatus.success ? (
+      {responseStatus.success ? (
+        <img src={formBg} />
+      ) : (
         <form className={c.form} onSubmit={handleSubmit(onSubmit)}>
           <Fields
             watch={watch}
@@ -136,8 +138,6 @@ export const FormBlock = ({ setUsersData }) => {
             )}
           </div>
         </form>
-      ) : (
-        <img src={formBg} />
       )}
     </section>
   );
