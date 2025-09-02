@@ -24,15 +24,15 @@ export const Hero = () => {
       <div className={c.heroImg}>
         <picture>
           <source
-            srcset="/bgHero/bgHeroMobile.jpg 1x, /bgHero/bgHeroMobile@2x.jpg 2x"
+            srcset="/bgHero/bgHeroMobile.jpg"
             media="(max-width: 360px)"
           />
           <source
-            srcset="/bgHero/bgHeroTablet.jpg 1x, /bgHero/bgHeroTablet@2x.jpg 2x"
+            srcset="/bgHero/bgHeroTablet.jpg"
             media="(max-width: 768px)"
           />
           <source
-            srcset="/bgHero/bgHeroLaptop.jpg 1x, /bgHero/bgHeroLaptop@2x.jpg 2x"
+            srcset="/bgHero/bgHeroLaptop.jpg"
             media="(max-width: 1024px)"
           />
           <img src="/bgHero/bgHero.jpg" alt="field" />
